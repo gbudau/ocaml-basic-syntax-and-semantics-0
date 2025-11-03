@@ -6,17 +6,16 @@ let ft_print_comb2 () : unit =
   let rec print_pairs a b =
     if a > 98 then ()
     else if b > 99 then print_pairs (a + 1) (a + 2)
-    else
-      let () =
-        print_two_digits a;
+    else (
+      print_two_digits a;
+      print_char ' ';
+      print_two_digits b;
+      if not (a = 98 && b = 99) then (
+        print_char ',';
         print_char ' ';
-        print_two_digits b;
-        if not (a = 98 && b = 99) then (
-          print_char ',';
-          print_char ' ';
-        )
-      in
+      );
       print_pairs a (b + 1)
+    )
   in
   print_pairs 0 1;
   print_char '\n'
